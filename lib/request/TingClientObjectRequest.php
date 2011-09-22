@@ -16,6 +16,15 @@ class TingClientObjectRequest extends TingClientRequest {
   protected $identifier;
   protected $profile;
   protected $outputType;
+  protected $objectFormat;
+
+  public function setObjectFormat($objectFormat) {
+    $this->objectFormat = $objectFormat;
+  }
+
+  public function getObjectFormat() {
+    return $this->objectFormat;
+  }
 
   public function setOutputType($outputType) {
     $this->outputType = $outputType;
@@ -95,20 +104,22 @@ class TingClientObjectRequest extends TingClientRequest {
     // If we have both localId and ownerId, combine them to get 
     elseif ($this->getAgency() && $this->localId) {
       $this->setParameter('identifier', implode('|', array(
-        $this->localId,
-        $this->getAgency(),
-      )));
+							   $this->localId,
+							   $this->getAgency(),
+							   )));
     }
 
     // pjo 210911 added profile to map
-    $methodParameterMap = array(
-      'format' => 'objectFormat',
-      'allRelations' => 'allRelations',
-      'relationData' => 'relationData',
-      'agency' => 'agency',
-      'profile' => 'profile',
-      'outputType' => 'outputType',
-    );
+    $methodParameterMap = 
+      array(
+	    'format' => 'format',
+	    'allRelations' => 'allRelations',
+	    'relationData' => 'relationData',
+	    'agency' => 'agency',
+	    'profile' => 'profile',
+	    'outputType' => 'outputType',
+	    'objectFormat' => 'objectFormat',
+	    );
 
     
 
