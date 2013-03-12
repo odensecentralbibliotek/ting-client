@@ -5,5 +5,6 @@ class TingClientSearchResult {
 	public $numTotalCollections = 0;
 	public $collections = array();
 	public $facets = array();	
+	public $time = 0;
 }
 
