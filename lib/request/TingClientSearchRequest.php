@@ -203,6 +203,7 @@ class TingClientSearchRequest extends TingClientRequest {
       throw new TingClientException('Error handling search request: '.self::getValue($searchResponse->error));
     }
 
+    $searchResult->time = self::getValue($searchResponse->result->time);
     $searchResult->numTotalObjects = self::getValue($searchResponse->result->hitCount);
     $searchResult->numTotalCollections = self::getValue($searchResponse->result->collectionCount);
     $searchResult->more = (strcasecmp('true', self::getValue($searchResponse->result->more)) == 0);
