@@ -33,6 +33,7 @@ class TingClientCollectionRequest extends TingClientSearchRequest {
     $response = parent::processResponse($response);
 
     if (isset($response->collections[0])) {
+      $response->collections[0]->time = $response->time;
       return $response->collections[0];
     }
   }
