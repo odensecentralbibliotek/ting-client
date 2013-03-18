@@ -142,6 +142,7 @@ class TingClientObjectRequest extends TingClientRequest {
     $response = $searchRequest->processResponse($response);
 
     if (isset($response->collections[0]->objects[0])) {
+      $response->collections[0]->objects[0]->time = $response->time;
       return $response->collections[0]->objects[0];
     }
   }
