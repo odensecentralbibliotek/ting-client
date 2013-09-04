@@ -44,6 +44,9 @@ class TingClientRequestAdapter {
         $server_time = '';
         if (isset($response->time)) {
           $server_time = ', server ' . $response->time . 's';
+          if (isset($response->numTotalObjects)) {
+            $server_time .= ', hitCount ' . $response->numTotalObjects;
+          }
         }
         $this->logger->log('Completed SOAP request ' . $soapAction . ' ' . $request->getWsdlUrl() . ' (' . round($time, 3) . 's' . $server_time . '). Request body: ' . $client->requestBodyString);
         return $response;
