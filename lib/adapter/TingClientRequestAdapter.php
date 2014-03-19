@@ -30,7 +30,7 @@ class TingClientRequestAdapter {
       try {
         $startTime = explode(' ', microtime());
         
-        $client = new NanoSOAPClient($request->getWsdlUrl());
+        $client = new NanoSOAPClient($request->getWsdlUrl(), array('curl' => array(CURLOPT_CONNECTTIMEOUT => 1)));
         $response = $client->call($soapAction, $soapParameters);
   
         $stopTime = explode(' ', microtime());
