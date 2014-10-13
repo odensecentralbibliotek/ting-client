@@ -195,15 +195,13 @@ class TingClientSearchRequest extends TingClientRequest {
   public function processResponse(stdClass $response) {
     $searchResult = new TingClientSearchResult();
 
-//pjo testing
-//print_r($response);
-
     $searchResponse = $response->searchResponse;
     if (isset($searchResponse->error)) {
       throw new TingClientException('Error handling search request: '.self::getValue($searchResponse->error));
     }
 
-    $searchResult->time = self::getValue($searchResponse->result->time);
+    $searchResult->time = self::getValue($searchResponse->result->statInfo->time); //Layout changed in well 3. New statsInfo object.
+    
     $searchResult->numTotalObjects = self::getValue($searchResponse->result->hitCount);
     $searchResult->numTotalCollections = self::getValue($searchResponse->result->collectionCount);
     $searchResult->more = (strcasecmp('true', self::getValue($searchResponse->result->more)) == 0);
