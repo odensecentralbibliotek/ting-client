@@ -79,7 +79,13 @@ class TingClientSearchRequest extends TingClientRequest {
     if (is_array($this->userDefinedBoost) && !empty($this->userDefinedBoost)) {
       $this->setParameter('userDefinedBoost', $this->userDefinedBoost);
     }
-
+    
+    /*
+     * New param to retrive a post's full relationship data.
+     * Must be set to full to retrive ALL relationships.
+     */
+    $this->relationData = 'full';
+    
     // Include userDefinedRanking if set on the request.
     if (is_array($this->userDefinedRanking) && !empty($this->userDefinedRanking)) {
       $this->setParameter('userDefinedRanking', $this->userDefinedRanking);
