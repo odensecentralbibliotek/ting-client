@@ -84,7 +84,7 @@ class TingClientSearchRequest extends TingClientRequest {
      * New param to retrive a post's full relationship data.
      * Must be set to full to retrive ALL relationships.
      */
-    $this->relationData = 'full';
+    //$this->relationData = 'full';
     
     // Include userDefinedRanking if set on the request.
     if (is_array($this->userDefinedRanking) && !empty($this->userDefinedRanking)) {
