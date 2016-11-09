@@ -27,7 +27,9 @@ class TingClientObjectRecommendationRequest extends TingClientRequest {
   function setNumResults($numResults) {
     $this->numResults = $numResults;
   }
-
+  public function setFaust($faust) {
+    $this->faust = $faust;
+  }
   public function getGender() {
     return $this->gender;
   }
@@ -60,7 +62,9 @@ class TingClientObjectRecommendationRequest extends TingClientRequest {
     if ($this->isbn) {
       $this->setParameter('id', array('isbn' => $this->isbn));
     }
-
+    if ($this->faust) {
+      $this->setParameter('id', array('faust' => $this->faust));
+    }
     if ($this->numResults) {
       $this->setParameter('numRecords', $this->numResults);
     }
