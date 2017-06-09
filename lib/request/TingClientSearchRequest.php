@@ -237,7 +237,7 @@ class TingClientSearchRequest extends TingClientRequest {
 
   private function generateObject($objectData, $namespaces) {
     $object = new TingClientObject();
-    $object->id = self::getValue($objectData->identifier);
+    $object->id = self::getValue($objectData->primaryObjectIdentifier);
 
     $object->record = array();
     $object->relations = array();
