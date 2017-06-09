@@ -60,5 +60,11 @@ class TingClientRequestFactory {
 	function getInfomediaReviewRequest(){
 	  return new TingClientInfomediaReviewRequest($this->urls['infomedia']);
 	}
+         /**
+         * @return TingCLientMarcXchangeRequest
+         */
+         function getMarcXchangeRequest() {
+            return new TingClientMarcXchangeRequest($this->urls['object']);
+         }
 }
 
