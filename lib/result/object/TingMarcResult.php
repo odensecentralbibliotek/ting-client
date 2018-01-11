@@ -42,7 +42,7 @@ class TingMarcResult {
     if (is_array($records)) {
       $primary_id = explode(':', $object->primaryObjectIdentifier->{'$'})[1];
       foreach ($records as $key => $record) {
-          if($record->{"@type"}->{'$'} != "Bibliographic")
+          if(isset($record->{"@type"}->{'$'}) && $record->{"@type"}->{'$'} != "Bibliographic")
           {
               continue;
           }
