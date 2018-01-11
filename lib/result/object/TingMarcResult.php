@@ -30,7 +30,7 @@ class TingMarcResult {
   protected function process() {
     // Check for errors.
     if (!empty($this->result->searchResponse->error)) {
-      throw new TingMarcException($this->result->searchResponse->error);
+      //throw new TingMarcException($this->result->searchResponse->error);
     }
 
     $object = $this->result->searchResponse->result->searchResult[0]->collection->object[0];
