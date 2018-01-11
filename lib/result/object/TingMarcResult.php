@@ -42,6 +42,10 @@ class TingMarcResult {
     if (is_array($records)) {
       $primary_id = explode(':', $object->primaryObjectIdentifier->{'$'})[1];
       foreach ($records as $key => $record) {
+          if($record->{"@type"}->{'$'} != "Bibliographic")
+          {
+              continue;
+          }
         foreach ($record->datafield as $key => $datafield) {
           if ($datafield->{'@tag'}->{'$'} == '001') {
             foreach ($datafield->subfield as $key => $subfield) {
