@@ -90,10 +90,16 @@ class TingClientSearchRequest extends TingClientRequest {
     if (is_array($this->userDefinedRanking) && !empty($this->userDefinedRanking)) {
       $this->setParameter('userDefinedRanking', $this->userDefinedRanking);
     }
-
+    $this->setQueryAgencyId();
     return $this;
   }
-
+  public function setQueryAgencyId()
+  {
+      $agency = variable_get('ting_agency', FALSE);
+      $query = $this->getQuery();
+      $query .= " AND holdingsitem.agencyid=" . $agency;
+      $this->setQuery($query);
+  }
   public function getQuery() {
     return $this->query;
   }

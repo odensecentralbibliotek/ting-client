@@ -50,7 +50,7 @@ abstract class TingClientRequest {
   public function execute(TingClientRequestAdapter $adapter) {
     return $adapter->execute($this->getRequest());
   }
-
+  
   public function parseResponse($responseString) {
     $response = json_decode($responseString);
 

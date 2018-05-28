@@ -131,7 +131,7 @@ class TingClientObjectRequest extends TingClientRequest {
       $this->setAllRelations($allRelations);
       $this->setRelationData($this->getRelationData());
     }
-
+    
     return $this;
   }
 

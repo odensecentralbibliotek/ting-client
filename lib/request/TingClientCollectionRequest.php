@@ -20,12 +20,12 @@ class TingClientCollectionRequest extends TingClientSearchRequest {
     $this->agency = $agency;
   }
 
-  public function getRequest() {
+  public function getRequest() {    
     $this->setQuery('rec.id=' . $this->id);
     $this->setAgency($this->agency);
     $this->setAllObjects(true);
     $this->setNumResults(1);
-
+    $this->setQueryAgencyId();
     return parent::getRequest();
   }
 
