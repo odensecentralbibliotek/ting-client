@@ -95,10 +95,15 @@ class TingClientSearchRequest extends TingClientRequest {
   }
   public function setQueryAgencyId()
   {
+    if (!isset($_SESSION['profile'])) {
       $agency = variable_get('ting_agency', FALSE);
       $query = $this->getQuery();
       $query .= " AND holdingsitem.agencyid=" . $agency;
       $this->setQuery($query);
+    } else {
+      $query = $this->getQuery();
+      $this->setQuery($query);
+    }
   }
   public function getQuery() {
     return $this->query;
